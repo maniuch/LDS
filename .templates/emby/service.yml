@@ -1,22 +1,21 @@
-  emby:
-    image: linuxserver/emby
-    container_name: emby
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
-      - UMASK_SET=<022> #optional
-    volumes:
-      - ./volumes/emby:/config
-      - ./TVseries:/data/tvshows
-      - ./Movies:/data/movies
-#    volumes:
-#      - /path/for/transcoding:/transcode #optional
-#      - /opt/vc/lib:/opt/vc/lib #optional
-    ports:
-      - 8096:8096
-    ports:
-      - 8920:8920 #optional
+emby:
+  image: linuxserver/emby
+  container_name: emby
+  environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Europe/London
+    - UMASK_SET=<022> #optional
+  volumes:
+    - ./volumes/emby:/config
+    - ./TVseries:/data/tvshows
+    - ./Movies:/data/movies
+  #    volumes:
+  #      - /path/for/transcoding:/transcode #optional
+  #      - /opt/vc/lib:/opt/vc/lib #optional
+  ports:
+    - 8096:8096
+    - 8920:8920 #optional
 #    devices:
 #      - /dev/dri:/dev/dri #optional
 #      - /dev/vchiq:/dev/vchiq #optional
