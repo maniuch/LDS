@@ -10,6 +10,6 @@ emby:
     - ./volumes/emby:/config
     - ./TVseries:/data/tvshows
     - ./Movies:/data/movies
-  ports:
-    - 8096:8096
-    - 8920:8920 #optional
+ports:
+  - 8096:8096
+  - 8920:8920 #optional
