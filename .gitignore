@@ -2,5 +2,10 @@
 /services/
 /volumes/
 /backups/
+/Download/
+/Movies/
+/Music/
+/TVseries/
+/TransmissionWathFolder/
 docker-compose.yml
 .outofdate

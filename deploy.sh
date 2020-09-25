@@ -1,11 +1,10 @@
 #!/bin/bash  
 
-#get path of menu correct
+#make sure you are in right directory
 pushd ~/LDS
 
-#This is the Display name for the menu
-#structure : [CONTAINER]=MENU Display Text
-#One entry per line to simplify PRs
+#Menu Display Name
+#[CONTAINER NAME]="MENU Text"
 declare -A cont_array=(
 	[portainer]="Portainer - GUI Docker Manager"
 	[sonarr]="Sonarr"
@@ -20,33 +19,9 @@ declare -A cont_array=(
 	[embystat]="EmbyStat - Statistics for Emby"
 	[nginx]="Ngnix - Web Server with links to all servises deployed"
 	[pihole]="Pi-Hole - Private DNS sinkhole"
-	
-	
-#	[mosquitto]="Eclipse-Mosquitto"
-#	[postgres]="Postgres"
-#	[mariadb]="MariaDB (MySQL fork)"
-#	[adminer]="Adminer"
-#	[openhab]="openHAB"
-#	[zigbee2mqtt]="zigbee2mqtt"
-#	[plex]="Plex media server"
-#	[tasmoadmin]="TasmoAdmin"
-#	[rtl_433]="RTL_433 to mqtt"
-#	[espruinohub]="EspruinoHub"
-#	[motioneye]="motionEye"
-#	[webthings_gateway]="Mozilla webthings-gateway"
-#	[blynk_server]="blynk-server"
-#	[nextcloud]="Next-Cloud"
-#	[nginx]="NGINX by linuxserver"
-#	[diyhue]="diyHue"
-#	[homebridge]="Homebridge"
-#	[python]="Python 3"	
-#	[zigbee2mqttassistant]="zigbee2mqttassistant"
 )
 
-#The convension for CONTAINER is that it is the name of the .templates/CONTAINER directory and as the key below for the relevant arch
-
-# keys for CONTAINER
-# One per line to simply PR
+# CONTAINER keys
 declare -a armhf_keys=(
 	"portainer" 
 	"sonarr" 
@@ -61,26 +36,6 @@ declare -a armhf_keys=(
 	"embystat"
 	"transmission"
 	"nginx"
-	
-#	"telegraf" 
-#	"mariadb" 
-#	"postgres"
-#	"adminer" 
-#	"openhab" 
-#	"zigbee2mqtt" 
-#	"plex" 
-#	"tasmoadmin" 
-#	"rtl_433" 
-#	"espruinohub"
-#	"motioneye" 
-#	"webthings_gateway" 
-#	"blynk_server" 
-#	"nextcloud" 
-#	"diyhue" 
-#	"homebridge" 
-#	"python" 
-#	"zigbee2mqttassistant" 
-	
 )
 
 sys_arch=$(uname -m)
@@ -91,12 +46,13 @@ timezones() {
 	env_file=$1
 	TZ=$(cat /etc/timezone)
 
-	#test for TZ=
+	#test TimeZone=
 	[ $(grep -c "TZ=" $env_file) -ne 0 ] && sed -i "/TZ=/c\TZ=$TZ" $env_file
 
 }
 
-# this function creates the volumes, services and backup directories. It then assisgns the current user to the ACL to give full read write access
+# This function creates the volumes, services and backup directories. 
+# It then assisgns the current user to the ACL to give full read write access
 docker_setfacl() {
 	[ -d ./services ] || mkdir ./services
 	[ -d ./volumes ] || mkdir ./volumes
