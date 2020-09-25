@@ -183,18 +183,21 @@ case $mainmenu_selection in
 		echo "docker already installed"
 	else
 		echo "Install Docker"
-		curl -fsSL https://get.docker.com | sh
-		sudo usermod -aG docker $USER
+		curl -fsSL https://get.docker.com | sh &> /dev/null
+		sudo usermod -aG docker $USER &> /dev/null
+		echo "Docker Installed" 
+		
 	fi
 
 	if command_exists docker-compose; then
 		echo "docker-compose already installed"
 	else
 		echo "Install docker-compose"
-		sudo apt install -y docker-compose
+		sudo apt install -y docker-compose &> /dev/null
+		echo "Docker-compose Installed" 
 	fi
 
-	if (whiptail --title "Restart Required" --yesno "It is recommended that you restart your device now. Select yes to do so now" 20 78); then
+	if (whiptail --title "Restart Required" --yesno "It is recommended that you restart your device now. User (pi) was added to the (docker) user group for this to take efect logout and log back in or reboot. Select yes to do so now" 20 78); then
 		sudo reboot
 	fi
 	;;
