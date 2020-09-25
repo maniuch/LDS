@@ -12,3 +12,4 @@
       - ./Downloads:/downloads
     ports:
       - 8989:8989
+      

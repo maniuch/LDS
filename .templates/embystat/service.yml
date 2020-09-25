@@ -9,3 +9,4 @@
       - ./volumes/embystat/config:/config
     ports:
       - 6555:6555
+      
