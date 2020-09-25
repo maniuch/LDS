@@ -28,18 +28,18 @@ This repository will allow you to dynamicly choose needed containers and automat
 
 ## How to Use it?
 
-1.install git using a command:
-<code style="display:block; white-space:pre-wrap">sudo apt-get install git</code>
+- install git using a command:
+<pre><code>sudo apt-get install git</code></pre>
 
-2.Clone the repository with:
-<code>git clone https://github.com/maniuch/LDS.git ~/LDS</code>
+- Clone the repository with:
+<pre><code>git clone https://github.com/maniuch/LDS.git ~/LDS</code></pre>
 
 <i>Do not change name of the folder on your local system it should stay as is for the script to work properly</i>
 
-3. Enter the directory and run:
+- Enter the directory and run:
 
-<code>cd ~/LDS</code>
-<code>./deploy.sh</code>
+<pre><code>cd ~/LDS</code></pre>
+<pre><code>./deploy.sh</code></pre>
 
 ## Menu
 
