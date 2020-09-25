@@ -1,4 +1,4 @@
-emby:
+ emby:
   image: linuxserver/emby
   container_name: emby
   environment:
