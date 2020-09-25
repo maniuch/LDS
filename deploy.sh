@@ -169,10 +169,11 @@ mainmenu_selection=$(whiptail --title "Main Menu" --menu --notags \
 	"install" "Install Docker" \
 	"build" "Build LDS Stack" \
 	"commands" "Docker commands" \
-#   "backup" "Backup options" \ # work in progress
 	"misc" "Miscellaneous commands" \
 	"update" "Update LDS Stack" \
 	3>&1 1>&2 2>&3)
+
+#   "backup" "Backup options" \ # work in progress
 
 case $mainmenu_selection in
 #MAINMENU Install docker  ------------------------------------------------------------
