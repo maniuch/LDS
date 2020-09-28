@@ -52,7 +52,7 @@ This repository will allow you to dynamicly choose needed containers and automat
 
 <p>You might like to install Portainer among all the other containers - Portainer is a graphical interface that lets you manage Docker engine - very useful tool if you don’t want to use Docker CLI.</p>
 
-### Docker Commands
+### Docker commands
 
 <p>This small section contains few useful commands in case your Portainer is not running and you would like to get something done without GUI.</p>
 
@@ -61,6 +61,6 @@ This repository will allow you to dynamicly choose needed containers and automat
 
 <p>There are three scripts that can be used in case you would like to disable swapping to your SD card. You might want to do it in order to extend life of your SD card. SD cards were not designed to be used as IO intensive storage, therefore using them like a HDDs is not ideal. Swap file is used to offload your RAM in case of OS need to dump it somewhere. Swap will be quite often modify, what might wear out your SD card in a long run. In other hand if your OS is swapping a lot of data it means his RAM size is generally to small - this might be a case on RPi3 where we have only 1GB of RAM.</p>        
 
-### Update LDS stack
+### Update LDS Stack
 
-<p>Each time you run <```./deploy.sh```> script it will check GitHub repository for any updates. There might be a small update but then you will be presented to upgrade, if this is the case, execute this option to pull recent updates in. Updates will not modify your configuration or any private files except the ones that are part of LDS logic. Some new functions might be added, new containers etc.</p>
+<p>Each time you run <code>./deploy.sh</code> script it will check GitHub repository for any updates. There might be a small update but then you will be presented to upgrade, if this is the case, execute this option to pull recent updates in. Updates will not modify your configuration or any private files except the ones that are part of LDS logic. Some new functions might be added, new containers etc.</p>
