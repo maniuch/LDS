@@ -183,22 +183,22 @@ case $mainmenu_selection in
 	if command_exists docker; then
 		echo "docker already installed"
 	else
-		echo "Instaling Docker - please wait"
+		echo -e "\e[34mInstaling Docker -\e[0m \e[5;94mplease wait\e[0m"
 		curl -fsSL https://get.docker.com | sh &> /dev/null
 		sudo usermod -aG docker $USER &> /dev/null
-		echo "Docker Installed"
+		echo -e "\e[32mDocker Installed\e[0m"
 
 	fi
 
 	if command_exists docker-compose; then
 		echo "docker-compose already installed"
 	else
-		echo "Instaling docker-compose - please wait"
+		echo -e "\e[34mInstaling docker-compose -\e[0m \e[5;94mplease wait\e[0m"
 		sudo apt install -y docker-compose &> /dev/null
-		echo "Docker-compose Installed"
+		echo -e "\e[32mDocker-compose Installed\e[0m"
 	fi
 
-	if (whiptail --title "Restart Required" --yesno "It is recommended that you restart your device now. User (pi) was added to the (docker) user group for this to take effect logout and log back in or reboot. Select yes to do so now" 20 78); then
+	if (whiptail --title "Restart Required" --yesno "\e[104mIt is recommended that you restart your device now. User (pi) was added to the (docker) user group for this to take effect logout and log back in or reboot. Select yes to do so now\e[0m" 20 78); then
 		sudo reboot
 	fi
 	;;
@@ -268,7 +268,7 @@ case $mainmenu_selection in
 		fi
 
 		echo "docker-compose successfully created"
-		echo -e "run \e[104m docker-compose up -d\e[0m to start the stack"
+		echo -e "run \e[104;1m docker-compose up -d \e[0m to start the stack"
 	else
 
 		echo "Build cancelled"
