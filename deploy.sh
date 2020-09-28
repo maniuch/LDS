@@ -1,4 +1,4 @@
-#!/bin/bash  
+#!/bin/bash
 
 #make sure you are in right directory
 pushd ~/LDS
@@ -23,15 +23,15 @@ declare -A cont_array=(
 
 # CONTAINER keys
 declare -a armhf_keys=(
-	"portainer" 
-	"sonarr" 
-	"radarr" 
-	"lidarr" 
+	"portainer"
+	"sonarr"
+	"radarr"
+	"lidarr"
 	"bazarr"
 	"jackett"
-	"deluge" 
+	"deluge"
 	"qbittorrent"
-	"pihole" 
+	"pihole"
 	"emby"
 	"embystat"
 	"transmission"
@@ -51,7 +51,7 @@ timezones() {
 
 }
 
-# This function creates the volumes, services and backup directories. 
+# This function creates the volumes, services and backup directories.
 # It then assisgns the current user to the ACL to give full read write access
 docker_setfacl() {
 	[ -d ./services ] || mkdir ./services
@@ -183,22 +183,22 @@ case $mainmenu_selection in
 	if command_exists docker; then
 		echo "docker already installed"
 	else
-		echo "Install Docker"
+		echo "Instaling Docker - please wait"
 		curl -fsSL https://get.docker.com | sh &> /dev/null
 		sudo usermod -aG docker $USER &> /dev/null
-		echo "Docker Installed" 
-		
+		echo "Docker Installed"
+
 	fi
 
 	if command_exists docker-compose; then
 		echo "docker-compose already installed"
 	else
-		echo "Install docker-compose"
+		echo "Instaling docker-compose - please wait"
 		sudo apt install -y docker-compose &> /dev/null
-		echo "Docker-compose Installed" 
+		echo "Docker-compose Installed"
 	fi
 
-	if (whiptail --title "Restart Required" --yesno "It is recommended that you restart your device now. User (pi) was added to the (docker) user group for this to take efect logout and log back in or reboot. Select yes to do so now" 20 78); then
+	if (whiptail --title "Restart Required" --yesno "It is recommended that you restart your device now. User (pi) was added to the (docker) user group for this to take effect logout and log back in or reboot. Select yes to do so now" 20 78); then
 		sudo reboot
 	fi
 	;;
@@ -268,7 +268,7 @@ case $mainmenu_selection in
 		fi
 
 		echo "docker-compose successfully created"
-		echo "run 'docker-compose up -d' to start the stack"
+		echo -e "run \e[104m docker-compose up -d\e[0m to start the stack"
 	else
 
 		echo "Build cancelled"
