@@ -181,7 +181,7 @@ case $mainmenu_selection in
 	#sudo apt update && sudo apt upgrade -y ;;
 
 	if command_exists docker; then
-		echo "\e[30;48;5;82mdocker already installed\e[0m"
+		echo -e "\e[30;48;5;82mdocker already installed\e[0m"
 	else
 		echo -e "\e[33m;1Instaling Docker - please wait\e[0m"
 		curl -fsSL https://get.docker.com | sh &> /dev/null
@@ -191,7 +191,7 @@ case $mainmenu_selection in
 	fi
 
 	if command_exists docker-compose; then
-		echo "\e[30;48;5;82mdocker-compose already installed\e[0m"
+		echo -e "\e[30;48;5;82mdocker-compose already installed\e[0m"
 	else
 		echo -e "\e[33;1mInstaling docker-compose - please wait\e[0m"
 		sudo apt install -y docker-compose &> /dev/null
